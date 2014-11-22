@@ -1,0 +1,46 @@
+#include <Servo.h> 
+ 
+Servo myservo1;  // create servo object to control a servo 
+Servo myservo2;
+ 
+int pos = 0;    // variable to store the servo position 
+int pos2 = 90;
+int con = 0;
+ 
+void setup() 
+{ 
+  myservo1.attach(5);  // attaches the servo on pin 9 to the servo object 
+  myservo2.attach (6);
+} 
+ 
+void loop() 
+{ 
+  for(pos = 0; pos <= 90; pos += 1) // goes from 0 degrees to 180 degrees 
+  {                                  // in steps of 1 degree
+     
+    myservo1.write(180);              // tell servo to go to position in variable 'pos' 
+    myservo2.write(0);
+    delay(1000);                       // waits 15ms for the servo to reach the position 
+   }
+} 
+
+void adelante(int velocidad){
+  l_servo.write(velocidad);
+  r_servo.write(180 - velocidad);
+}
+
+void atras(int velocidad){
+  l_servo.write(180 - velocidad);
+  r_servo.write(velocidad);
+}
+
+void izquierda (int velocidad)
+{
+  l_servo.write(velocidad);
+  r_servo.write(velocidad);
+}
+
+void derecha(int velocidad){
+  l_servo.write(180 - velocidad);
+  r_servo.write(180 - velocidad);
+}
